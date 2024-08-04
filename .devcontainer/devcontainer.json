@@ -1,0 +1,72 @@
+<?php
+require_once __DIR__ . '/vendor/autoload.php';
+
+$mpdf = new \Mpdf\Mpdf();
+
+// Defina o HTML para a capa do e-book
+$html = '
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .cover {
+            background-color: #f4f4f4;
+            padding: 50px;
+            border: 1px solid #ccc;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 50px;
+            color: #333;
+        }
+        .subtitle {
+            font-size: 24px;
+            margin-top: 10px;
+            color: #666;
+        }
+        .image {
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="cover">
+        <!-- Insira a URL ou o caminho da sua imagem ilustrada aqui -->
+        <div class="image">
+            <img src="https://via.placeholder.com/300x200.png?text=Imagem+Ilustrada" alt="Imagem do Marketing Digital" width="300"/>
+        </div>
+        <div class="title">Técnicas Avançadas de Marketing Digital</div>
+        <div class="subtitle">Um Guia Completo por Sanilson Cordeiro</div>
+        <div class="footer">
+            <div>Publicado por: S.A.C-Gestão</div>
+            <div>Telefone: 959-300-249</div>
+            <div>Email: sanilsoncordeiro60@gmail.com</div>
+        </div>
+    </div>
+</body>
+</html>
+';
+
+// Adicione o HTML ao MPDF
+$mpdf->WriteHTML($html);
+
+// Gera o PDF e envia para o navegador
+$mpdf->Output('capa_ebook.pdf', 'I');
+?>
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+  }
+}
